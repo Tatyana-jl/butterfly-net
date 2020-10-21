@@ -1,0 +1,18 @@
+n_epochs: 500
+check_every_x_epoch: 100
+
+optimizer:
+ type: Adam
+ start_learning_rate: 0.0001
+ scheduler: False
+
+loss:
+ train_on_loss: dice_loss
+ weight: False
+
+training_mode:
+ n_samples: 1
+
+
+
+

@@ -1,0 +1,247 @@
+memory_encoder:
+ layer1:
+  conv_block:
+   input_channels: 2
+   output_channels: 16
+   kernel: 5
+  downconv:
+   in_channels: 16
+   out_channels: 32
+   kernel: 2
+   stride: 2
+
+ layer2:
+  res_block:
+   input_channels:
+    - 32
+    - 32
+   output_channels:
+    - 32
+    - 32
+   kernel: 5
+  downconv:
+   in_channels: 32
+   out_channels: 64
+   kernel: 2
+   stride: 2
+
+ layer3:
+  res_block:
+   input_channels:
+    - 64
+    - 64
+    - 64
+   output_channels:
+    - 64
+    - 64
+    - 64
+   kernel: 5
+  downconv:
+   in_channels: 64
+   out_channels: 128
+   kernel: 2
+   stride: 2
+
+ layer4:
+  res_block:
+   input_channels:
+    - 128
+    - 128
+    - 128
+   output_channels:
+    - 128
+    - 128
+    - 128
+   kernel: 5
+  downconv:
+   in_channels: 128
+   out_channels: 256
+   kernel: 2
+   stride: 2
+
+ layer5:
+  res_block:
+   input_channels:
+    - 256
+    - 256
+    - 256
+   output_channels:
+    - 256
+    - 256
+    - 256
+   kernel: 5
+
+ key_encoder:
+  in_channels: 256
+  out_channels: 32
+  kernel: 3
+ value_encoder:
+  in_channels: 256
+  out_channels: 128
+  kernel: 3
+
+
+query_encoder:
+ layer1:
+  res_block:
+   input_channels:
+    - 1
+   output_channels:
+    - 16
+   kernel: 5
+  downconv:
+   in_channels: 16
+   out_channels: 32
+   kernel: 2
+   stride: 2
+
+ layer2:
+  res_block:
+   input_channels:
+    - 32
+    - 32
+   output_channels:
+    - 32
+    - 32
+   kernel: 5
+  downconv:
+   in_channels: 32
+   out_channels: 64
+   kernel: 2
+   stride: 2
+
+ layer3:
+  res_block:
+   input_channels:
+    - 64
+    - 64
+    - 64
+   output_channels:
+    - 64
+    - 64
+    - 64
+   kernel: 5
+  downconv:
+   in_channels: 64
+   out_channels: 128
+   kernel: 2
+   stride: 2
+
+ layer4:
+  res_block:
+   input_channels:
+    - 128
+    - 128
+    - 128
+   output_channels:
+    - 128
+    - 128
+    - 128
+   kernel: 5
+  downconv:
+   in_channels: 128
+   out_channels: 256
+   kernel: 2
+   stride: 2
+
+ layer5:
+  res_block:
+   input_channels:
+    - 256
+    - 256
+    - 256
+   output_channels:
+    - 256
+    - 256
+    - 256
+   kernel: 5
+ key_encoder:
+  in_channels: 256
+  out_channels: 32
+  kernel: 3
+ value_encoder:
+  in_channels: 256
+  out_channels: 128
+  kernel: 3
+
+decoder:
+ layer1:
+  upconv:
+   in_channels: 256
+   out_channels: 128
+   kernel: 2
+   stride: 2
+  res_block:
+   input_channels:
+    - 256
+    - 256
+    - 256
+   output_channels:
+    - 256
+    - 256
+    - 256
+   kernel: 5
+
+ layer2:
+  upconv:
+   in_channels: 256
+   out_channels: 128
+   kernel: 2
+   stride: 2
+  res_block:
+   input_channels:
+    - 192
+    - 128
+    - 128
+   output_channels:
+    - 128
+    - 128
+    - 128
+   kernel: 5
+
+ layer3:
+  upconv:
+   in_channels: 128
+   out_channels: 64
+   kernel: 2
+   stride: 2
+  res_block:
+   input_channels:
+    - 96
+    - 64
+   output_channels:
+    - 64
+    - 64
+   kernel: 5
+
+ layer4:
+  upconv:
+   in_channels: 64
+   out_channels: 32
+   kernel: 2
+   stride: 2
+  res_block:
+   input_channels:
+    - 48
+   output_channels:
+    - 32
+   kernel: 5
+
+ layer5:
+  end_conv:
+   in_channels: 32
+   out_channels: 2
+   kernel: 1
+  non-linearity: softmax
+
+
+
+
+
+
+
+
+
+
+
+
