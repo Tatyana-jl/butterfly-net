@@ -7,7 +7,7 @@ Kirsten Lauber†,
 Christopher Kurz†,
 Guillaume Landry†,
 Nassir Navab*,
-Shadi Albarqouni*‡
+[Shadi Albarqouni](https://albarqouni.github.io/)*‡
 
 
 > *Computer Aided Medical Procedures, Technical University of Munich, Munich, Germany  
